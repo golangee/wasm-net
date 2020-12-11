@@ -12,6 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Package http provides a WASM compatible http client API which provides some convenience features and does not
+// Package fetch provides a WASM compatible http client API which provides some convenience features and does not
 // block or deadlock the UI or WASM Thread.
-package http
+package fetch
