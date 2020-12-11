@@ -1,3 +1,3 @@
-module github.com/golangee/wui-net
+module github.com/golangee/wasm-net
 
 go 1.15
