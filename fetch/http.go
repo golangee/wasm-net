@@ -86,15 +86,16 @@ func AsText(f func(res string, err error)) func(res *http.Response, err error) {
 	}
 }
 
-// AsJSON tries to unmarshal into given v and invokes the callback afterwards. Example:
+// AsJSON tries to unmarshal into given v and invokes the callback afterwards. The callback is always invoked
+// and if the err is nil, the given interface has been populated successfully. Example:
 //   type MyType struct{
 //     SomeField string
 //   }
 //
 //   var myType MyType
 //   Get("http://...", AsJSON(&myType, func(err error)) {
-//		if err != nil {
-//        return
+//      if err != nil {
+//         return
 //      }
 //
 //      // do something with myType, but note that this is an async call
@@ -119,5 +120,7 @@ func AsJSON(v interface{}, f func(err error)) func(res *http.Response, err error
 
 			return
 		}
+
+		f(nil) // success case
 	}
 }
